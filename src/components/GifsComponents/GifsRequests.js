@@ -18,5 +18,14 @@ class GifsRequests {
             );
     }
 
+
+    static getSearchedGifs(query) {
+        return fetch(`https://api.giphy.com/v1/gifs/search?${API_KEY}&q=${query}`)
+            .then(response => response.json())
+            .then(gifsList => gifsList.data.map(gif => new GifModel(gif)))
+            .catch(err => console.log(err)
+            );
+    }
+
 }
 export default GifsRequests

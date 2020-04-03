@@ -3,28 +3,26 @@ import GifsRequests from './GifsRequests';
 import GifsList from './GifList';
 import './style.css'
 
-class RandomGifs extends Component {
+class SearchGif extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gifs: {}
+            gifs: []
         };
     }
 
     async componentDidMount() {
-        let gifs = await GifsRequests.getRandomGifs();
-        console.log(gifs);
-
+        let gifs = await GifsRequests.getTrendingGifs();
         this.setState({ gifs })
     }
 
     render() {
         return (
-            <div>
-
+            <div className='trending'>
+                <GifsList gifs={this.state.gifs} onGifClicked={this.props.onGifClicked} />
             </div>
         );
     }
 }
 
-export default RandomGifs;
+export default SearchGif;

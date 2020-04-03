@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TrendingGifs from './TrendingGifs';
-import RandomGifs from './RandomGifs';
-import GifModal from '../GifDetailsComponent/GifDetails'
+import GifModal from '../GifDetailsComponent/GifDetailsModal'
 
 
 class GifComponent extends Component {
@@ -26,7 +25,6 @@ class GifComponent extends Component {
         return (
             <>
                 <TrendingGifs onGifClicked={this.onGifClicked} />
-                <RandomGifs />
                 <GifModal modal={this.state.modal} gif={this.state.gif} />
             </>
         );

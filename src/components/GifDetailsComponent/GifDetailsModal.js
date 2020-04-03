@@ -5,7 +5,7 @@ import facebook from './Images/facebook.gif';
 import twitter from './Images/giphy.gif';
 
 
-class GifDetails extends Component {
+class GifModal extends Component {
     constructor(props) {
         super(props)
 
@@ -27,6 +27,10 @@ class GifDetails extends Component {
         });
     }
 
+    componentWillUnmount() {
+        console.log('unmounted');
+    }
+
     render() {
         return (
             <MDBContainer>
@@ -39,7 +43,7 @@ class GifDetails extends Component {
                             <a href={'http://twitter.com/share?url=' + this.props.gif.embedUrl} target='_blank'>
                                 <img src={twitter} className='social m-1' />
                             </a>
-                            <button className='m-1 copy-btn' onClick={navigator.clipboard.writeText(this.props.gif.embedUrl)}>copy  link</button>
+                            <button className='m-1 copy-btn' onClick={() => navigator.clipboard.writeText(this.props.gif.embedUrl)}>copy  link</button>
                         </div>
                     </div>
                 </MDBModal>
@@ -48,4 +52,4 @@ class GifDetails extends Component {
     }
 }
 
-export default GifDetails;
+export default GifModal;
