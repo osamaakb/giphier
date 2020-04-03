@@ -10,10 +10,8 @@ class GifsRequests {
     // itemType is here in order to make the api customizable.
     // We will use it as interface to fetch gifs, stickers, etc...
 
-    if (itemType !== "gifs") return Promise.reject(new Error(ERROR_MSG));
-
     // signal will be used to abort a fetch in useEffect
-    return fetch(`https://api.giphy.com/v1/gifs/trending?${API_KEY}`, {
+    return fetch(`https://api.giphy.com/v1/${itemType}/trending?${API_KEY}`, {
       signal
     })
       .then(response => response.json())
@@ -22,18 +20,16 @@ class GifsRequests {
   }
 
   static getRandom(itemType, signal) {
-    if (itemType !== "gifs") return Promise.reject(new Error(ERROR_MSG));
 
-    return fetch(`https://api.giphy.com/v1/gifs/random?${API_KEY}`, { signal })
+    return fetch(`https://api.giphy.com/v1/${itemType}/random?${API_KEY}`, { signal })
       .then(response => response.json())
       .then(json => new GifModel(json.data))
       .catch(err => console.log(err));
   }
 
   static search(query, itemType, signal) {
-    if (itemType !== "gifs") return Promise.reject(new Error(ERROR_MSG));
 
-    return fetch(`https://api.giphy.com/v1/gifs/search?${API_KEY}&q=${query}`, {
+    return fetch(`https://api.giphy.com/v1/${itemType}/search?${API_KEY}&q=${query}`, {
       signal
     })
       .then(response => response.json())
