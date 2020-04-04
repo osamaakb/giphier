@@ -28,11 +28,12 @@ const sizes = {
     base: "fixed_height"
   },
   preview: { webp: "preview_webp", base: "preview", gif: "preview_gif" },
-  original: { base: "original", mp4: "original_mp4" },
+  original: { base: "original", mp4: "original" },
   looping: "looping"
 };
 
 const size = sizes.preview.gif;
+const video = sizes.original.mp4
 
 class GifModel extends BaseModel {
   constructor(json) {
@@ -43,6 +44,7 @@ class GifModel extends BaseModel {
       json.username,
       json.url,
       json.embed_url,
+      json.images[video].mp4,
       json
     );
     this.isGif = true;

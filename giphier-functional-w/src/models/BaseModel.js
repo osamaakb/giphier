@@ -7,13 +7,14 @@
 // That is in case we are using different apis
 
 class BaseModel {
-  constructor(id, src, title, username, url, embedUrl, json) {
+  constructor(id, src, title, username, url, embedUrl, mp4, json) {
     this.id = id;
     this.src = src;
     this.title = title;
     this.username = username;
     this.embedUrl = embedUrl;
     this.url = url;
+    this.mp4 = mp4;
     this.json = json;
   }
 
@@ -31,6 +32,10 @@ class BaseModel {
 
   getEmbed() {
     return this.embedUrl;
+  }
+
+  getMp4() {
+    return this.mp4;
   }
 
   getId() {

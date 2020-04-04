@@ -27,7 +27,7 @@ const Modal = ({ item, show, toggleHandler }) => (
           </a>
           <button
             className="m-1 copy-btn"
-            onClick={() => navigator.clipboard.writeText(item.getEmbed())}
+            onClick={() => navigator.clipboard.writeText(item.getMp4())}
           >
             Copy Link
           </button>

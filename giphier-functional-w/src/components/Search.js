@@ -24,9 +24,13 @@ const Search = () => {
     setSelectedItem(item);
   };
 
+
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
+
+    console.log(itemType);
+
 
     Api.search(query, itemType, signal)
       .then(data => setItems(data))
@@ -38,7 +42,7 @@ const Search = () => {
     return () => {
       abortController.abort();
     };
-  }, [itemType]);
+  }, [query]);
 
   return (
     <>

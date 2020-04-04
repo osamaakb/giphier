@@ -58,6 +58,7 @@ const SearchBar = () => {
         >
           <div className="search-btn d-flex justify-content-center align-items-center">
             <MDBIcon className="text-white" icon="search" />
+            {/* <span className="spinner-border text-white"></span> */}
           </div>
         </Gradient>
       </div>
