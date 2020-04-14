@@ -31,7 +31,7 @@ class NavBar extends Component {
 
     onSearchText = (query) => {
         this.props.history.push(`/search/${query}`);
-        // console.log(this.props.history);
+        console.log(this.props.history);
 
     }
 
